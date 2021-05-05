@@ -1,0 +1,7 @@
+{
+    "name": "kafkajs-producer",
+    "version": "1.0.0",
+    "main": "demo-producer.js",
+    "author": "sv",
+    "license": "MIT"
+}
