@@ -38,14 +38,17 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-
+#### first steps with kafka notes
 
 ```
 npm i kafkajs
 npm i @nestjs/microservices
 ```
-
-
+`app.module.ts`
+```
+  app.connectMicroservice(kafkajsMicroserviceConfig)
+  await app.startAllMicroservicesAsync()
+```
 ```
 nest g mo demo-kafka
 ```
