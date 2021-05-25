@@ -1,4 +1,4 @@
-**[ <= back](../README.md#Nest.js+microservice+approaches)**
+**[ <= back](../README.md#nestjs-microservice-approaches)**
 # Nest.js Microservices
 
 ## [Install the required package](https://docs.nestjs.com/microservices/basics#installation)

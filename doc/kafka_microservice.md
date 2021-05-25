@@ -1,4 +1,4 @@
-**[ <= back](nest.js_microservice.md#Kafka+microservice+configuration)**
+**[ <= back](nest.js_microservice.md##kafka-microservice-configuration)**
 
 ## Kafka Consumer Configuration for NEST.JS Microservice
 
@@ -18,7 +18,7 @@ export const kafkajsMicroserviceConfig: KafkaOptions = {
 }
 ```
 
-`kafkajsMicroserviceConfig` should be used in [`main.ts`](nest.js_microservice.md#Few+approaches+to+instantiate+a+microservice)
+`kafkajsMicroserviceConfig` should be used in [`main.ts`](nest.js_microservice.md#few-approaches-to-instantiate-a-microservice)
 
 Also to be able listen something on specified configuration it needs to subscribe on topics and connect to microservice. The best way of doing this is to use lifecycle hooks like `OnModuleInit`, `OnModuleDestroy`:
 ```
