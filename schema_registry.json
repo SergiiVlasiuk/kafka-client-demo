@@ -1,0 +1,18 @@
+{
+    "namespace": "examples",
+    "type": "record",
+    "name": "Holder",
+    "fields": [
+        {
+            "name": "holder",
+            "type": {
+                "name": "holder",
+                "type": "record",
+                "fields": [
+                    { "type": "string", "name": "name" },
+                    { "type": "string", "name": "message" }
+                ]
+            }
+        }
+    ]
+}
