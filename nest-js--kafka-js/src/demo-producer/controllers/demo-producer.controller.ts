@@ -1,20 +1,26 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Logger } from '@nestjs/common';
 import { Client, ClientKafka } from '@nestjs/microservices';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { Observable } from 'rxjs';
-import { kafkajsProducerConfig } from './kafkajaProducerConfig';
+import { DemoProducerService } from '../services';
+import { kafkajsProducerConfig } from '../../configurations';
 
 @Controller('demo-producer')
 export class DemoProducerController {
+    private readonly logger = new Logger(DemoProducerController.name);
+
+    constructor(private demoProducerService: DemoProducerService) {
+        this.logger.debug('created')
+    }
 
     @Client(kafkajsProducerConfig)
     kafka: ClientKafka
 
     @Get()
     getProducerHello(): string {
-        console.log('[DemoProducerController] getProducerHello')
+        this.logger.verbose('getProducerHello')
         this.send()
-
+        this.demoProducerService.traceMe()
         return 'hello producer'
     }
 
@@ -22,7 +28,7 @@ export class DemoProducerController {
     // @Cron(CronExpression.EVERY_MINUTE)
     @Cron(CronExpression.EVERY_30_SECONDS)
     cronTrigger() {
-        console.log('[DemoProducerController] cron trigger')
+        this.logger.verbose('cron trigger')
         this.send()
     }
 
@@ -30,8 +36,8 @@ export class DemoProducerController {
         const payload = 'hello from [DemoProducerController] ' + new Date()
         const sent: Observable<any> = this.kafka.emit('demo-topic', payload)
         // const sent: Observable<any> = this.kafka.send({ cmd: 'sum' }, payload)
-        console.log('[DemoProducerController] message is published')
-        // sent.subscribe(() => console.log('message has been sent'))
+        this.logger.verbose('message is published')
+        // sent.subscribe(answer => console.log('message has been sent and answered: ', answer))
     }
 
 }

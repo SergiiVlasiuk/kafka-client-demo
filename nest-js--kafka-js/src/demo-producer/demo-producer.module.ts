@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { DemoProducerController } from './demo-producer.controller';
+import { DemoProducerController, DemoProducerService } from './';
 
 @Module({
-  controllers: [DemoProducerController]
+  controllers: [DemoProducerController],
+  providers: [DemoProducerService]
 })
 export class DemoProducerModule {}
