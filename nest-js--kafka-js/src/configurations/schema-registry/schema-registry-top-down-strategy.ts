@@ -14,7 +14,6 @@ export const encode = async (payload) => {
 console.log('registry service: 14')
 
 const registryService = {
-    registry,
     encode,
     decode: payload => registry.decode(payload)
 }

@@ -35,9 +35,8 @@ export const encode = async (payload) => {
 }
 
 const registryService = {
-    registry,
     encode,
-    decode: registry.decode
+    decode: payload => registry.decode(payload)
 }
 
 export const RegistryProvider = {
