@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "e90b671a-2cea-4498-a9d4-740ff497e1ca",
+		"name": "nest-kafka--requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "schema-registry",
+			"item": [
+				{
+					"name": "registry-schemas/types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/schemas/types",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"schemas",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/config",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder versions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder schema by version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/1",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder latest schema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/latest",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-schema versions by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/schemas/ids/3/versions",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"schemas",
+								"ids",
+								"3",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-schema schema by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/schemas/ids/1",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"schemas",
+								"ids",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder referencedBy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/latest/referencedby",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								"latest",
+								"referencedby"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder compartibility",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"schema\": \"{\\\"type\\\": \\\"record\\\",\\\"name\\\": \\\"MySchema\\\",\\\"namespace\\\": \\\"demo\\\",\\\"fields\\\": [{\\\"name\\\": \\\"firstLevelField\\\",\\\"type\\\": {\\\"type\\\": \\\"record\\\",\\\"name\\\": \\\"firstLevelField\\\",\\\"fields\\\": [{ \\\"type\\\": \\\"string\\\", \\\"name\\\": \\\"name\\\" },{ \\\"type\\\": \\\"string\\\", \\\"name\\\": \\\"description\\\" },{ \\\"type\\\": \\\"string\\\", \\\"name\\\": \\\"bod\\\", \\\"default\\\": \\\"any default value\\\" }]}}]}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://schema-registry:8081/compatibility/subjects/demo.MySchema/versions/latest",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"compatibility",
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder update schema",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"schema\": \"{\\\"type\\\": \\\"record\\\",\\\"name\\\": \\\"MySchema\\\",\\\"namespace\\\": \\\"demo\\\",\\\"fields\\\": [{\\\"name\\\": \\\"firstLevelField\\\",\\\"type\\\": {\\\"type\\\": \\\"record\\\",\\\"name\\\": \\\"firstLevelField\\\",\\\"fields\\\": [{ \\\"type\\\": \\\"string\\\", \\\"name\\\": \\\"name\\\" },{ \\\"type\\\": \\\"string\\\", \\\"name\\\": \\\"description\\\" }]}}]}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registry-subjects examples.Holder delete schema",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://schema-registry:8081/subjects/demo.MySchema/versions/1",
+							"protocol": "http",
+							"host": [
+								"schema-registry"
+							],
+							"port": "8081",
+							"path": [
+								"subjects",
+								"demo.MySchema",
+								"versions",
+								"1"
+							],
+							"query": [
+								{
+									"key": "permanent",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "permanent",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nest.js-app",
+			"item": [
+				{
+					"name": "demo-producer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/demo-producer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"demo-producer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "demo-producer - publish message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstLevelField\": {\n        \"name\": \"Subhash Chandra Bose\",\n        \"description\": \"indian hero\"\n    }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/demo-producer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"demo-producer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
