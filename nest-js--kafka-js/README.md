@@ -164,3 +164,10 @@ npm install @types/cron
 ```
 @Cron(CronExpression.EVERY_30_SECONDS)
 ```
+
+### [NestJS 11 - Interceptor and Decorator](https://www.youtube.com/watch?v=_7EFgsri3Qo)
+
+```
+nest g in log
+nest g d log
+```

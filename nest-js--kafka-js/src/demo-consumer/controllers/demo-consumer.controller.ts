@@ -1,5 +1,7 @@
-import { Controller, Get, Logger } from '@nestjs/common';
+import { Controller, Get, Logger, UseInterceptors } from '@nestjs/common';
 import { Ctx, EventPattern, KafkaContext, Payload } from '@nestjs/microservices';
+import { Log } from 'src/log.decorator';
+import { LogInterceptor } from 'src/log.interceptor';
 import { DemoConsumerService } from '../services';
 
 @Controller('demo-consumer')
@@ -18,6 +20,8 @@ export class DemoConsumerController {
   }
 
   // @MessagePattern('demo-topic')
+  @Log('log-decorator')
+  @UseInterceptors(LogInterceptor)
   @EventPattern('demo-topic')
   async killDragon(
     @Payload() { value },

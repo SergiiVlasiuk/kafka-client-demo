@@ -23,7 +23,7 @@ export class DemoConsumerModule implements OnModuleInit, OnModuleDestroy {
       await this.client.connect()
   }
 
-  onModuleDestroy() {
+  async onModuleDestroy() {
       this.logger.debug('onModuleDestroy')
       this.client.close()
   }

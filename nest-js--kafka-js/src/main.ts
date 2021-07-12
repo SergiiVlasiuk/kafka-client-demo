@@ -10,5 +10,6 @@ async function bootstrap() {
   app.connectMicroservice(kafkajsMicroserviceConfig)
   await app.startAllMicroservicesAsync()
   await app.listen(port, () => logger.log(`service has been started on port ${port}`));
+  logger.log(`Application is running on: ${await app.getUrl()}`)
 }
 bootstrap();
