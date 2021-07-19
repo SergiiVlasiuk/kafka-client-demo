@@ -1,0 +1,48 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/nest-multibranch/src",
+  "monorepo": true,
+  "root": "apps/nest-multibranch",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/nest-multibranch/tsconfig.app.json"
+  },
+  "projects": {
+    "nest-multibranch": {
+      "type": "application",
+      "root": "apps/nest-multibranch",
+      "entryFile": "main",
+      "sourceRoot": "apps/nest-multibranch/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nest-multibranch/tsconfig.app.json"
+      }
+    },
+    "second-app": {
+      "type": "application",
+      "root": "apps/second-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/second-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/second-app/tsconfig.app.json"
+      }
+    },
+    "shared": {
+      "type": "library",
+      "root": "libs/shared",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "microservice-subscriber": {
+      "type": "application",
+      "root": "apps/microservice-subscriber",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservice-subscriber/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservice-subscriber/tsconfig.app.json"
+      }
+    }
+  }
+}
