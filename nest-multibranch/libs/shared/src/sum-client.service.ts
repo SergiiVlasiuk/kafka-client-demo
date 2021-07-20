@@ -4,9 +4,14 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SumClientService {
-    constructor(@Inject('MATH_SERVICE') private client: ClientProxy) {
+    constructor(
+        @Inject('MATH_SERVICE') private client: ClientProxy,
+        @Inject('CLIENT_NAME') private name: string,
+        ) {
         console.log('[SumClientService] - created')
     }
+
+    // clientProxy: (clientName: string) => ClientProxy = (clientName: string): ClientProxy => // TODO load by clientName real client from nest.js context
 
     sumCalculation(row: number[]): Observable<number> {
         return this.client.send<number>({ cmd: 'sum' }, row);

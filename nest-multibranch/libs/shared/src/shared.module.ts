@@ -6,7 +6,8 @@ import { SumClientService } from './sum-client.service';
 @Module({})
 export class SharedModule {
   // Array<ClientProviderOptions>
-  static register(options: ClientProviderOptions): DynamicModule {
+  static register({ name, transport}): DynamicModule {
+  // static register(options: ClientProviderOptions): DynamicModule {
   // static register(options: Array<ClientProviderOptions>): DynamicModule {
   // static register(...options: Array<ClientProviderOptions>): DynamicModule {
   // static register(...options: ClientConfiguration[]): DynamicModule {
@@ -14,11 +15,11 @@ export class SharedModule {
       module: SharedModule,
       // todo options
       imports: [ClientsModule.register(
-        [ options ]
+        [ { name, transport} ],
+        // [ options ],
       )],
       providers: [
-        { provide: 'CLIENT_NAMES', useFactory: () => [ options.name ] },
-        // { provide: LoggerClientService, useClass: LoggerClientService },
+        { provide: 'CLIENT_NAME', useFactory: () =>  name },
         SumClientService,
       ],
       exports: [SumClientService]
