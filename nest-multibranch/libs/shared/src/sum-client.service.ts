@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class SumClientService {
     constructor(
-        @Inject('MATH_SERVICE') private client: ClientProxy,
+        @Inject('MATH_SERVICE') private client: ClientProxy, // TODO should be removed
         @Inject('CLIENT_NAME') private name: string,
         ) {
         console.log('[SumClientService] - created')
