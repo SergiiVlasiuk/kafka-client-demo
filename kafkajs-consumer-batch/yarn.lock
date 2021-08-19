@@ -4,5 +4,5 @@
 
 "kafkajs@^1.15.0":
   "integrity" "sha512-yjPyEnQCkPxAuQLIJnY5dI+xnmmgXmhuOQ1GVxClG5KTOV/rJcW1qA3UfvyEJKTp/RTSqQnUR3HJsKFvHyTpNg=="
-  "resolved" "https://registry.npmjs.org/kafkajs/-/kafkajs-1.15.0.tgz"
+  "resolved" "https://registry.yarnpkg.com/kafkajs/-/kafkajs-1.15.0.tgz"
   "version" "1.15.0"
